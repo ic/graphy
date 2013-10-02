@@ -60,8 +60,6 @@ require 'pathname'
 
 path = Pathname.new(__FILE__)
 $LOAD_PATH.unshift(path + '../../vendor')
-$LOAD_PATH.unshift(path + '../../vendor/priority-queue/lib')
 
 require 'rdot'
-require 'priority_queue/ruby_priority_queue'
-PriorityQueue = RubyPriorityQueue
+

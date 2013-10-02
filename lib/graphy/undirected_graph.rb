@@ -1,7 +1,6 @@
 module Graphy
 
   class UndirectedGraph < Graph
-
     autoload :Algorithms, "graphy/undirected_graph/algorithms"
 
      def initialize(*params)

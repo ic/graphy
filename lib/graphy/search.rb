@@ -1,3 +1,5 @@
+require 'algorithms'
+
 module Graphy
   module Search
 
@@ -230,12 +232,14 @@ module Graphy
       color = {start => :gray} # Open is :gray, Closed is :black
       parent = Hash.new {|k| parent[k] = k}
       f = {start => func.call(start)}
-      queue = PriorityQueue.new.push(start,f[start])
+      #queue = PriorityQueue.new.push(start,f[start])
+      queue = Containers::PriorityQueue.new { |x, y| (x <=> y) == -1 } # min heap
+      queue.push(start, f[start])
       block.call(start) if block
 
       # Process queue
       until queue.empty?
-        u,dummy = queue.delete_min
+        u,dummy = queue.pop # Top of the queue: Lowest priority.
         options.handle_callback(:examine_vertex, u)
 
         # Unravel solution if goal is reached.

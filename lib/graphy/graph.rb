@@ -278,18 +278,18 @@ module Graphy
     def +(other)
       result = self.class.new(self)
       case other
-        when Graphy::Graph : result.merge(other)
-        when Graphy::Arc   : result.add_edge!(other)
-        else                result.add_vertex!(other)
+      when Graphy::Graph then result.merge(other)
+      when Graphy::Arc   then result.add_edge!(other)
+      else result.add_vertex!(other)
       end
     end
 
     # Remove all vertices in the specified right hand side graph
     def -(other)
       case  other
-        when Graphy::Graph : induced_subgraph(vertices - other.vertices)
-        when Graphy::Arc   : self.class.new(self).remove_edge!(other)
-        else                self.class.new(self).remove_vertex!(other)
+      when Graphy::Graph then induced_subgraph(vertices - other.vertices)
+      when Graphy::Arc   then self.class.new(self).remove_edge!(other)
+      else self.class.new(self).remove_vertex!(other)
       end
     end
 
