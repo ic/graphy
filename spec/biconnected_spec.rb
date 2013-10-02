@@ -1,13 +1,13 @@
-require File.join(File.dirname(__FILE__), 'spec_helper')
+require 'spec_helper'
 
 describe "Biconnected" do # :nodoc:
   describe "tarjan" do
     it do
       tarjan = UndirectedGraph[ 1, 2,
                                 1, 5,
-                                1, 6, 
+                                1, 6,
                                 1, 7,
-                                2, 3, 
+                                2, 3,
                                 2, 4,
                                 3, 4,
                                 2, 5,

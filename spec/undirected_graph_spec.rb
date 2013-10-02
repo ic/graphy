@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'spec_helper')
+require 'spec_helper'
 
 describe "UndirectedGraph" do # :nodoc:
 
@@ -75,7 +75,7 @@ describe "UndirectedGraph" do # :nodoc:
 
   describe "operators" do
     it do
-      result = @single + Edge[3,2] 
+      result = @single + Edge[3,2]
       @single.size.should == 4
       @single.num_edges.should == 3
       result.size.should == 4
@@ -98,7 +98,7 @@ describe "UndirectedGraph" do # :nodoc:
       @single.num_edges.should == 3
       result.size.should == 3
       result.num_edges.should == 2
-      
+
       @single << Edge[6,1]
       @single.size.should == 5
       @single.num_edges.should == 4
@@ -108,7 +108,7 @@ describe "UndirectedGraph" do # :nodoc:
 
   describe "complement" do
     it do
-      complement = @single.complement 
+      complement = @single.complement
       complement.vertices.sort.should == [1,2,3,4]
       complement.should_not be_edge(1,1)
       complement.should be_edge(1,3)
