@@ -3,6 +3,8 @@ Graphy: A Graph Library for Ruby
 
 Ongoing work to modernize the Graphy library. See the original work, as well as the previous generations.
 
+[![Build Status](https://travis-ci.org/ic/graphy.png)](https://travis-ci.org/ic/graphy)
+
 Important Note & Status
 -----------------------
 
