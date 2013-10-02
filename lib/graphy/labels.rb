@@ -22,7 +22,7 @@ module Graphy
     end
 
     # Set the label for an edge
-    def edge_label_set(u, v=nil, l=nil, n=nil) 
+    def edge_label_set(u, v=nil, l=nil, n=nil)
       u.kind_of?(Graphy::Arc) ? l = v : u = edge_convert(u,v,n)
       edge_label_dict[u] = l; self
     end
@@ -49,20 +49,20 @@ module Graphy
     # when given a value. If no weight value is specified, the label itself is
     # treated as the cost value.
     #
-    # Note: This function will not work for Pseudo or Multi graphs at present. 
+    # Note: This function will not work for Pseudo or Multi graphs at present.
     # FIXME: Remove u,v interface to fix Pseudo Multi graph problems.
     def cost(u,v=nil,weight=nil)
-      u.kind_of?(Arc) ? weight = v : u = edge_class[u,v] 
+      u.kind_of?(Arc) ? weight = v : u = edge_class[u,v]
       case weight
         when Proc : weight.call(u)
         when nil  : self[u]
         else        self[u][weight]
       end
     end
-    
+
     # An alias of cost for property retrieval in general
     alias property cost
-    
+
     # A function to set properties specified by the user.
     def property_set(u,name,value)
       case name

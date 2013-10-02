@@ -1,9 +1,9 @@
 module Graphy
-  
+
   # This defines the minimum set of functions required to make a graph class that can
   # use the algorithms defined by this library
   module GraphAPI
-    
+
     # Each implementation module must implement the following routines
     #   * directed?()   # Is the graph directed?
     #   * add_vertex!(v,l=nil) # Add a vertex to the graph and return the graph, l is an optional label
@@ -14,10 +14,10 @@ module Graphy
     #   * edges() # Returns an array of all edges
     #   * edge_class() # Returns the class used to store edges
     def self.included(klass)
-       [:directed?,:add_vertex!,:add_edge!,:remove_vertex!,:remove_edge!,:vertices,:edges,:edge_class].each do |meth| 
+       [:directed?,:add_vertex!,:add_edge!,:remove_vertex!,:remove_edge!,:vertices,:edges,:edge_class].each do |meth|
          raise "Must implement #{meth}" unless klass.instance_methods.include?(meth.to_s)
        end
-       
+
        klass.class_eval do
          # Is this right?
          alias remove_arc! remove_edge!
